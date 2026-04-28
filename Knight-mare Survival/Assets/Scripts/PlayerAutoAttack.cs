@@ -29,13 +29,14 @@ public class PlayerAutoAttack : MonoBehaviour
 
     void Attack()
     {
-        int count = Physics2D.OverlapCircleNonAlloc(new Vector2(transform.position.x, transform.position.y + offset), attackRadius, hitBuffer, enemyLayer);
+        Vector2 pos = new Vector2(transform.position.x, transform.position.y + offset);
+        int count = Physics2D.OverlapCircleNonAlloc(pos, attackRadius, hitBuffer, enemyLayer);
         if (count == 0) return;
 
         for (int i = 0; i < count; i++)
         {
             var enemy = hitBuffer[i].GetComponent<EnemyHealth>();
-            if (enemy != null) enemy.TakeDamage(damage);
+            if (enemy != null) enemy.TakeDamage(damage, pos);
         }
     }
 

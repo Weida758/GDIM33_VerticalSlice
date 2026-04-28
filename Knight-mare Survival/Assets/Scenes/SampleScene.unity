@@ -12119,6 +12119,53 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &981153243
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 981153245}
+  - component: {fileID: 981153244}
+  m_Layer: 0
+  m_Name: VFXPool
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &981153244
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 981153243}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 58b0b1b0f8e668f47b84846122b9b912, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::VFXPool
+  pools:
+  - prefab: {fileID: 1531392852246714488, guid: d60dfde2b679f8a4db7cc2d3e10d2d36, type: 3}
+    initialSize: 2
+--- !u!4 &981153245
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 981153243}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -3.77393, y: 2.14947, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1272826453
 GameObject:
   m_ObjectHideFlags: 0
@@ -12409,6 +12456,7 @@ GameObject:
   - component: {fileID: 1451995856}
   - component: {fileID: 1451995855}
   - component: {fileID: 1451995854}
+  - component: {fileID: 1451995858}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -12588,6 +12636,23 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 1
   m_Constraints: 4
+--- !u!114 &1451995858
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1451995851}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f65d28613c06624418882a1911cdce78, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::VFXAuraEmitter
+  vfxPrefab: {fileID: 1531392852246714488, guid: d60dfde2b679f8a4db7cc2d3e10d2d36, type: 3}
+  followTarget: {fileID: 1451995852}
+  offset: {x: 0, y: 3}
+  interval: 1
+  parentToTarget: 1
 --- !u!1 &1479327241
 GameObject:
   m_ObjectHideFlags: 0
@@ -12735,6 +12800,7 @@ SceneRoots:
   - {fileID: 658632494}
   - {fileID: 1451995852}
   - {fileID: 295867790}
+  - {fileID: 981153245}
   - {fileID: 278893011}
   - {fileID: 32826569}
   - {fileID: 1272826456}
