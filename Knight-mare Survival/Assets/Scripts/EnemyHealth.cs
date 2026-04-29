@@ -47,7 +47,7 @@ public class EnemyHealth : MonoBehaviour
             if (knockbackTimer <= 0f && chase != null) chase.enabled = true;
         }
     }
-
+    
     public void TakeDamage(int amount, Vector2 sourcePosition)
     {
         currentHealth -= amount;

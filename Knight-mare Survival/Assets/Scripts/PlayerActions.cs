@@ -102,18 +102,9 @@ public partial class @PlayerAction: IInputActionCollection2, IDisposable
                     ""initialStateCheck"": true
                 },
                 {
-                    ""name"": ""New action"",
+                    ""name"": ""Pause"",
                     ""type"": ""Button"",
-                    ""id"": ""c1072366-da3d-457b-bd01-e0a8d37f0a6e"",
-                    ""expectedControlType"": """",
-                    ""processors"": """",
-                    ""interactions"": """",
-                    ""initialStateCheck"": false
-                },
-                {
-                    ""name"": ""New action1"",
-                    ""type"": ""Button"",
-                    ""id"": ""a249a7cd-80cb-434f-ad16-cf244fec67a3"",
+                    ""id"": ""6052aa90-60fc-4e9a-a13c-67cd371d517f"",
                     ""expectedControlType"": """",
                     ""processors"": """",
                     ""interactions"": """",
@@ -178,23 +169,12 @@ public partial class @PlayerAction: IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": """",
-                    ""id"": ""b052bd3e-5909-4eb1-92e9-781921786ae6"",
-                    ""path"": """",
+                    ""id"": ""c17f6b02-dca3-4c52-93ad-9b30d2710bdc"",
+                    ""path"": ""<Keyboard>/escape"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""New action"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""1f092de9-b774-4738-9b95-bc19d5483ab8"",
-                    ""path"": """",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""New action1"",
+                    ""action"": ""Pause"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -206,8 +186,7 @@ public partial class @PlayerAction: IInputActionCollection2, IDisposable
         // Player
         m_Player = asset.FindActionMap("Player", throwIfNotFound: true);
         m_Player_Move = m_Player.FindAction("Move", throwIfNotFound: true);
-        m_Player_Newaction = m_Player.FindAction("New action", throwIfNotFound: true);
-        m_Player_Newaction1 = m_Player.FindAction("New action1", throwIfNotFound: true);
+        m_Player_Pause = m_Player.FindAction("Pause", throwIfNotFound: true);
     }
 
     ~@PlayerAction()
@@ -289,8 +268,7 @@ public partial class @PlayerAction: IInputActionCollection2, IDisposable
     private readonly InputActionMap m_Player;
     private List<IPlayerActions> m_PlayerActionsCallbackInterfaces = new List<IPlayerActions>();
     private readonly InputAction m_Player_Move;
-    private readonly InputAction m_Player_Newaction;
-    private readonly InputAction m_Player_Newaction1;
+    private readonly InputAction m_Player_Pause;
     /// <summary>
     /// Provides access to input actions defined in input action map "Player".
     /// </summary>
@@ -307,13 +285,9 @@ public partial class @PlayerAction: IInputActionCollection2, IDisposable
         /// </summary>
         public InputAction @Move => m_Wrapper.m_Player_Move;
         /// <summary>
-        /// Provides access to the underlying input action "Player/Newaction".
+        /// Provides access to the underlying input action "Player/Pause".
         /// </summary>
-        public InputAction @Newaction => m_Wrapper.m_Player_Newaction;
-        /// <summary>
-        /// Provides access to the underlying input action "Player/Newaction1".
-        /// </summary>
-        public InputAction @Newaction1 => m_Wrapper.m_Player_Newaction1;
+        public InputAction @Pause => m_Wrapper.m_Player_Pause;
         /// <summary>
         /// Provides access to the underlying input action map instance.
         /// </summary>
@@ -343,12 +317,9 @@ public partial class @PlayerAction: IInputActionCollection2, IDisposable
             @Move.started += instance.OnMove;
             @Move.performed += instance.OnMove;
             @Move.canceled += instance.OnMove;
-            @Newaction.started += instance.OnNewaction;
-            @Newaction.performed += instance.OnNewaction;
-            @Newaction.canceled += instance.OnNewaction;
-            @Newaction1.started += instance.OnNewaction1;
-            @Newaction1.performed += instance.OnNewaction1;
-            @Newaction1.canceled += instance.OnNewaction1;
+            @Pause.started += instance.OnPause;
+            @Pause.performed += instance.OnPause;
+            @Pause.canceled += instance.OnPause;
         }
 
         /// <summary>
@@ -363,12 +334,9 @@ public partial class @PlayerAction: IInputActionCollection2, IDisposable
             @Move.started -= instance.OnMove;
             @Move.performed -= instance.OnMove;
             @Move.canceled -= instance.OnMove;
-            @Newaction.started -= instance.OnNewaction;
-            @Newaction.performed -= instance.OnNewaction;
-            @Newaction.canceled -= instance.OnNewaction;
-            @Newaction1.started -= instance.OnNewaction1;
-            @Newaction1.performed -= instance.OnNewaction1;
-            @Newaction1.canceled -= instance.OnNewaction1;
+            @Pause.started -= instance.OnPause;
+            @Pause.performed -= instance.OnPause;
+            @Pause.canceled -= instance.OnPause;
         }
 
         /// <summary>
@@ -417,18 +385,11 @@ public partial class @PlayerAction: IInputActionCollection2, IDisposable
         /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
         void OnMove(InputAction.CallbackContext context);
         /// <summary>
-        /// Method invoked when associated input action "New action" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// Method invoked when associated input action "Pause" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
         /// </summary>
         /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
         /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
         /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
-        void OnNewaction(InputAction.CallbackContext context);
-        /// <summary>
-        /// Method invoked when associated input action "New action1" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
-        /// </summary>
-        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
-        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
-        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
-        void OnNewaction1(InputAction.CallbackContext context);
+        void OnPause(InputAction.CallbackContext context);
     }
 }

@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 7227085937165463458}
   - component: {fileID: 7810448289067783152}
   - component: {fileID: -4162614670834388574}
+  - component: {fileID: 6375620782344883709}
   m_Layer: 6
   m_Name: Skeleton
   m_TagString: Untagged
@@ -199,3 +200,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemyHealth
   maxHealth: 3
+  flashDuration: 0.1
+  knockbackDuration: 0.15
+  knockbackForce: 8
+--- !u!114 &6375620782344883709
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6873060706805223636}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 84f2012349a24866be6ae990d98e38cd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::EnemyDamageOnContact
+  damage: 10
+  damageInterval: 0.5
