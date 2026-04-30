@@ -2,7 +2,47 @@ fileFormatVersion: 2
 guid: 5d3e972e401abc8448f48536c04b4eb7
 ScriptedImporter:
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:AnimationClip
+      assembly: UnityEngine.AnimationModule
+      name: Attack01
+    second: {fileID: 7400000, guid: 8d433662c3e4eea44b9510eae8337341, type: 2}
+  - first:
+      type: UnityEngine:AnimationClip
+      assembly: UnityEngine.AnimationModule
+      name: Attack02
+    second: {fileID: 7400000, guid: 3e238a11ef0e3eb41b676a1e0af19b68, type: 2}
+  - first:
+      type: UnityEngine:AnimationClip
+      assembly: UnityEngine.AnimationModule
+      name: Attack03
+    second: {fileID: 7400000, guid: 2bc900a036a84434691a6ae9c583dba3, type: 2}
+  - first:
+      type: UnityEngine:AnimationClip
+      assembly: UnityEngine.AnimationModule
+      name: Block
+    second: {fileID: 7400000, guid: fcbf4c429908eab4eaec280fd0643460, type: 2}
+  - first:
+      type: UnityEngine:AnimationClip
+      assembly: UnityEngine.AnimationModule
+      name: Death
+    second: {fileID: 7400000, guid: d6d7869f7be590646984be8ac78b73ea, type: 2}
+  - first:
+      type: UnityEngine:AnimationClip
+      assembly: UnityEngine.AnimationModule
+      name: Hurt
+    second: {fileID: 7400000, guid: eb71f7f30987c5c4abf2f5f8678cce87, type: 2}
+  - first:
+      type: UnityEngine:AnimationClip
+      assembly: UnityEngine.AnimationModule
+      name: Idle
+    second: {fileID: 7400000, guid: 64204ba13b5042b44ae6122b0a6db5d1, type: 2}
+  - first:
+      type: UnityEngine:AnimationClip
+      assembly: UnityEngine.AnimationModule
+      name: Walk
+    second: {fileID: 7400000, guid: 8fe5b37bb9aaf56418a20c2f460644fd, type: 2}
   serializedVersion: 2
   userData: 
   assetBundleName: 
@@ -102,7 +142,7 @@ ScriptedImporter:
     generateIndividualEvents: 1
     generateSpriteAtlas: 1
   importFileNodeState: 1
-  platformSettingsDirtyTick: 639124637952727952
+  platformSettingsDirtyTick: 639130839841840496
   textureAssetName: 
   singleSpriteImportData:
   - name: 

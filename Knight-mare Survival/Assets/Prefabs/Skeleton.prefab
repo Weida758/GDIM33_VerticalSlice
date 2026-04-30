@@ -199,10 +199,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d3600e44c22e46feb24d15b40fc832c0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemyHealth
-  maxHealth: 3
-  flashDuration: 0.1
-  knockbackDuration: 0.15
-  knockbackForce: 8
+  <flashDuration>k__BackingField: 0.1
+  enemyStat: {fileID: 11400000, guid: f1db22410584e91458207b59e890eb18, type: 2}
 --- !u!114 &6375620782344883709
 MonoBehaviour:
   m_ObjectHideFlags: 0

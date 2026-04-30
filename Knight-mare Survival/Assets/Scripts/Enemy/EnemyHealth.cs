@@ -2,12 +2,10 @@ using UnityEngine;
 
 public class EnemyHealth : MonoBehaviour
 {
-    public int maxHealth = 3;
-    public float flashDuration = 0.1f;
-    public float knockbackDuration = 0.15f;
-    public float knockbackForce = 8f;
+    [field: SerializeField] public float flashDuration { get; private set; } = 0.1f;
 
-    private int currentHealth;
+    [SerializeField] private EnemyStat enemyStat;
+    private float currentHealth;
     private SpriteRenderer sr;
     private Color baseColor;
     private Rigidbody2D rb;
@@ -21,12 +19,13 @@ public class EnemyHealth : MonoBehaviour
         sr = GetComponentInChildren<SpriteRenderer>();
         rb = GetComponent<Rigidbody2D>();
         chase = GetComponent<EnemyChase>();
+        
         if (sr != null) baseColor = sr.color;
     }
 
     void OnEnable()
     {
-        currentHealth = maxHealth;
+        currentHealth = enemyStat.maxHealth;
         flashTimer = 0f;
         knockbackTimer = 0f;
         if (sr != null) sr.color = baseColor;
@@ -67,8 +66,8 @@ public class EnemyHealth : MonoBehaviour
         {
             Vector2 dir = ((Vector2)transform.position - sourcePosition).normalized;
             if (chase != null) chase.enabled = false;
-            rb.linearVelocity = dir * knockbackForce;
-            knockbackTimer = knockbackDuration;
+            rb.linearVelocity = dir * enemyStat.knockbackForce;
+            knockbackTimer = enemyStat.knockbackDuration;
         }
     }
 }

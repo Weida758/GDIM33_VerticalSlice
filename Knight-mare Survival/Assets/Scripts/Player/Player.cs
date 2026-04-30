@@ -9,13 +9,14 @@ public class Player : MonoBehaviour
     private InputActionMap inputMap;
     private InputAction moveAction;
     private Vector2 moveInput;
+    private Animator anim;
 
     private void Awake()
     {
         inputs = new PlayerAction();
         inputMap = inputs.Player;
         rb = GetComponent<Rigidbody2D>();
-        
+        anim = GetComponent<Animator>();
         
         moveAction = inputMap.FindAction("Move");
     }
@@ -32,10 +33,12 @@ public class Player : MonoBehaviour
     private void Update()
     {
         moveInput = moveAction.ReadValue<Vector2>();
+        anim.SetFloat("moveInput", Mathf.Abs(moveInput.x + moveInput.y));
     }
 
     private void FixedUpdate()
     {
         rb.linearVelocity = moveInput * speed;
+        
     }
 }
