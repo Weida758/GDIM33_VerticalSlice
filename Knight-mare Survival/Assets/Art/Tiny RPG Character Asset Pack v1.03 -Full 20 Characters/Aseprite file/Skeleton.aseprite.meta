@@ -2,7 +2,42 @@ fileFormatVersion: 2
 guid: a4e0425bf4718c84ab4b9573faa7fd8d
 ScriptedImporter:
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:AnimationClip
+      assembly: UnityEngine.AnimationModule
+      name: Attack01
+    second: {fileID: 7400000, guid: aebddf66ac99593428380af4d848d4cd, type: 2}
+  - first:
+      type: UnityEngine:AnimationClip
+      assembly: UnityEngine.AnimationModule
+      name: Attack02
+    second: {fileID: 7400000, guid: dde681cdd5854024ca4a5754da5a7bcb, type: 2}
+  - first:
+      type: UnityEngine:AnimationClip
+      assembly: UnityEngine.AnimationModule
+      name: Block
+    second: {fileID: 7400000, guid: 4f9dae8bf54ce054891ba764d5d9d3f1, type: 2}
+  - first:
+      type: UnityEngine:AnimationClip
+      assembly: UnityEngine.AnimationModule
+      name: Death
+    second: {fileID: 7400000, guid: c8cb9a19fac4aaa498c459b6baea9c5a, type: 2}
+  - first:
+      type: UnityEngine:AnimationClip
+      assembly: UnityEngine.AnimationModule
+      name: Hurt
+    second: {fileID: 7400000, guid: 20966dafa9d9fb449a13bc1794455437, type: 2}
+  - first:
+      type: UnityEngine:AnimationClip
+      assembly: UnityEngine.AnimationModule
+      name: Idle
+    second: {fileID: 7400000, guid: fb62ef9976b9b8746889b0c2bae48b44, type: 2}
+  - first:
+      type: UnityEngine:AnimationClip
+      assembly: UnityEngine.AnimationModule
+      name: Walk
+    second: {fileID: 7400000, guid: 392d2d4206cff014f8bb645965937632, type: 2}
   serializedVersion: 2
   userData: 
   assetBundleName: 
@@ -102,7 +137,7 @@ ScriptedImporter:
     generateIndividualEvents: 1
     generateSpriteAtlas: 1
   importFileNodeState: 1
-  platformSettingsDirtyTick: 639124697646654301
+  platformSettingsDirtyTick: 639136776738516965
   textureAssetName: 
   singleSpriteImportData:
   - name: 

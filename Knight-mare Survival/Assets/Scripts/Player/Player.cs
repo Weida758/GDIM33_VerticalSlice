@@ -10,6 +10,7 @@ public class Player : MonoBehaviour
     private InputAction moveAction;
     private Vector2 moveInput;
     private Animator anim;
+    private int facingDir = 1;
 
     private void Awake()
     {
@@ -34,6 +35,22 @@ public class Player : MonoBehaviour
     {
         moveInput = moveAction.ReadValue<Vector2>();
         anim.SetFloat("moveInput", Mathf.Abs(moveInput.x + moveInput.y));
+        if (moveInput.x < 0 &&  facingDir == 1)
+        {
+            Flip();
+            Debug.Log("Flipped");
+        }
+        else if (moveInput.x > 0 && facingDir == -1)
+        {
+            Flip();
+            Debug.Log("Flipped");
+        }
+    }
+
+    private void Flip()
+    {
+        facingDir *= -1;
+        transform.localScale = new Vector3(facingDir, transform.localScale.y, transform.localScale.z);
     }
 
     private void FixedUpdate()
