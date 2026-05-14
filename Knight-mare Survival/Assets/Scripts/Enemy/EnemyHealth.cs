@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 public class EnemyHealth : MonoBehaviour
@@ -5,6 +6,8 @@ public class EnemyHealth : MonoBehaviour
     [field: SerializeField] public float flashDuration { get; private set; } = 0.1f;
 
     [SerializeField] private EnemyStat enemyStat;
+
+    public event Action<Vector3> OnDied;
     private float currentHealth;
     private SpriteRenderer sr;
     private Color baseColor;
@@ -52,6 +55,7 @@ public class EnemyHealth : MonoBehaviour
         currentHealth -= amount;
         if (currentHealth <= 0)
         {
+            OnDied?.Invoke(transform.position);
             EnemyPool.Instance.Release(gameObject);
             return;
         }

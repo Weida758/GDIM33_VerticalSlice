@@ -17,6 +17,7 @@ GameObject:
   - component: {fileID: -4162614670834388574}
   - component: {fileID: 6375620782344883709}
   - component: {fileID: 5995716745182975760}
+  - component: {fileID: 744348746480650294}
   m_Layer: 6
   m_Name: Skeleton
   m_TagString: Untagged
@@ -238,3 +239,18 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &744348746480650294
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6873060706805223636}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 874e12fb700e6ff48934f53258602281, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::EnemyXPDrop
+  gemPrefab: {fileID: 9017380606553801142, guid: fb778759519e2a24cb9b3d507b128058, type: 3}
+  dropChance: 1
+  spawnOffset: {x: 0, y: 3, z: 0}
