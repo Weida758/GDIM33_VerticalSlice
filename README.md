@@ -6,7 +6,8 @@
 
 
 ## Milestone 2 Devlog
-Milestone 2 Devlog goes here.
+
+1. 
 ## Milestone 3 Devlog
 Milestone 3 Devlog goes here.
 ## Milestone 4 Devlog
@@ -14,4 +15,8 @@ Milestone 4 Devlog goes here.
 ## Final Devlog
 Final Devlog goes here.
 ## Open-source assets
-- Cite any external assets used here!
+- [Health Bar UI](https://assetstore.unity.com/packages/2d/gui/icons/gui-parts-159068)
+- [Attack VFX](https://untiedgames.itch.io/super-pixel-effects-gigapack)
+- [Environment Tilemap](https://backterria.itch.io/the-roguelike)
+- [Character Sprite](https://zerie.itch.io/tiny-rpg-character-asset-pack)
+- [Card Upgrade](https://cafedraw.itch.io/fantasy-card-assets)
