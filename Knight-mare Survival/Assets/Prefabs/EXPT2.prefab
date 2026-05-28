@@ -59,7 +59,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 9dfc825aed78fcd4ba02077103263b40, type: 2}
+  - {fileID: 2100000, guid: ad48a14412c05f549a3e8db29e21ffc6, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -109,3 +109,4 @@ MonoBehaviour:
   collectRadius: 0.3
   magnetMaxSpeed: 12
   magnetAcceleration: 30
+  settleDelay: 0.25
