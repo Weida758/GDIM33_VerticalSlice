@@ -33,7 +33,13 @@ Big Step 3:
 4. The Unity system that I want to be graded is the WeaponDataSO.cs script under Scripts/Weapons/ folder. All the weapon's base stat as well as per level specific stats are handled by the WeaponDataSO, which I can use to create weapon assets that can be used for future weapons as well. 
 
 ## Milestone 3 Devlog
-Milestone 3 Devlog goes here.
+1. The shadergraph that I made is used on the experience points in the game and the graders can find the shader graph named shine under the Art/Shader folder, and the material using that shader graph under Art/Material which is named Shine as well. These materials are used for the EXPT2 and EXPT3 prefabs under Prefab folder. It is a 2D Sprite Unlit shader that samples the sprite texture with a Sample Texture 2D node using the sprite UVs, multiplies the sampled RGBA by a gold tint, and sends the texture alpha to the Alpha output so the sprite keeps its transparent shape. I used a Time node with Sine to make the brightness pulse, and I used the UV X/Y values with the Fraction, Absolute, One Minus, and SmoothStep nodes to create the diagonal shine that goes across the sprite. These nodes combined together changes the sprite's fragment color during rendering and makes the experience point on the ground shine periodically. 
+<img width="2793" height="1388" alt="image" src="https://github.com/user-attachments/assets/7eef7439-838d-4338-8eb4-14be17019e10" />
+
+2. The previous feedback from playtesting was that the waves spawns a little too quickly and that they weren't sure if the balancing is fine because there isn't multiple weapons. I addressed these feedbacks by adding an additional weapon that the player can obtain by leveling up. I feel like by adding another weapon to obtain and upgrade, the player wouldn't think the enemies are spawning too quickly as they are much more powerful now.
+
+3. Since the last milestone I have added enemy damaged sound effects to make the game feel good to play. I also added a new weapon, which when obtained, the player will periodically shoot out orbs that bounce around the boundaries of the camera and damages any enemy it touches. In addition to this, to let the player upgrade even after they have the max leveled weapon, I added stats upgrades so that when the weapons are leveled to the max and the player levels up, they can choose to upgrade their base stats. I also adjusted enemy healths to reflect the addition of a new weapon, by increasing the health of the goblin enemy that spawns a few waves after the skeleton enemies spawn. 
+
 ## Milestone 4 Devlog
 Milestone 4 Devlog goes here.
 ## Final Devlog
