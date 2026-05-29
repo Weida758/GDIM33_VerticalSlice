@@ -5,6 +5,9 @@ public class EnemySpawner : MonoBehaviour
     public Transform player;
     public float waveInterval = 15f;
     public int enemiesPerWave = 8;
+    public int enemiesPerWaveIncrease = 2;
+    public float enemyIncreaseInterval = 20f;
+    public int maxEnemiesPerWave = 60;
     public float spawnBuffer = 1.5f;
     public int maxActiveEnemies = 300;
 
@@ -52,8 +55,8 @@ public class EnemySpawner : MonoBehaviour
 
     void SpawnWave()
     {
-        int active = transform.parent != null ? 0 : EnemyTracker.ActiveCount;
-        int toSpawn = Mathf.Min(enemiesPerWave, maxActiveEnemies - EnemyTracker.ActiveCount);
+        int currentEnemiesPerWave = GetCurrentEnemiesPerWave();
+        int toSpawn = Mathf.Min(currentEnemiesPerWave, maxActiveEnemies - EnemyTracker.ActiveCount);
         if (toSpawn <= 0) return;
 
         Vector2 playerPos = player.position;
@@ -70,5 +73,15 @@ public class EnemySpawner : MonoBehaviour
             GameObject prefab = (lateUnlocked && Random.value < 0.5f) ? lateEnemyPrefab : earlyEnemyPrefab;
             EnemyPool.Instance.Get(prefab, pos);
         }
+    }
+
+    int GetCurrentEnemiesPerWave()
+    {
+        if (enemyIncreaseInterval <= 0f || enemiesPerWaveIncrease <= 0)
+            return enemiesPerWave;
+
+        int increases = Mathf.FloorToInt(elapsed / enemyIncreaseInterval);
+        int scaledWaveSize = enemiesPerWave + increases * enemiesPerWaveIncrease;
+        return Mathf.Min(scaledWaveSize, maxEnemiesPerWave);
     }
 }

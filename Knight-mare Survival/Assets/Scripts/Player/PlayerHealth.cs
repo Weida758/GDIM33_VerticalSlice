@@ -49,6 +49,25 @@ public class PlayerHealth : MonoBehaviour
         onHealthChanged?.Invoke(currentHealth, maxHealth);
     }
 
+    public void AddMaxHealth(int amount, bool healByAmount = true)
+    {
+        if (amount <= 0 || currentHealth <= 0) return;
+
+        maxHealth += amount;
+        if (healByAmount)
+        {
+            currentHealth = Mathf.Min(maxHealth, currentHealth + amount);
+        }
+
+        onHealthChanged?.Invoke(currentHealth, maxHealth);
+    }
+
+    public void AddInvincibilityDuration(float amount)
+    {
+        if (amount <= 0f) return;
+        invincibilityDuration += amount;
+    }
+
     [ContextMenu("Take 10 Damage")]
     void DebugTakeDamage() => TakeDamage(10);
 

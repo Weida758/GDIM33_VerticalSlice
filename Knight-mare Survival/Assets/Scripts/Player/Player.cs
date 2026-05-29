@@ -12,6 +12,11 @@ public class Player : MonoBehaviour
     private Animator anim;
     private int facingDir = 1;
 
+    public float Speed
+    {
+        get { return speed; }
+    }
+
     private void Awake()
     {
         inputs = new PlayerAction();
@@ -57,5 +62,11 @@ public class Player : MonoBehaviour
     {
         rb.linearVelocity = moveInput * speed;
         
+    }
+
+    public void AddMoveSpeed(float amount)
+    {
+        if (amount <= 0f) return;
+        speed += amount;
     }
 }

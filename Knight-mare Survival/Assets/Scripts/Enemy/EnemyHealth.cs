@@ -6,6 +6,7 @@ public class EnemyHealth : MonoBehaviour
     [field: SerializeField] public float flashDuration { get; private set; } = 0.1f;
 
     [SerializeField] private EnemyStat enemyStat;
+    [SerializeField] private AudioClip takeDamageSound;
 
     public event Action<Vector3> OnDied;
     private float currentHealth;
@@ -53,6 +54,7 @@ public class EnemyHealth : MonoBehaviour
     public void TakeDamage(int amount, Vector2 sourcePosition)
     {
         currentHealth -= amount;
+        AudioManager.instance.PlaySoundEffectClip(takeDamageSound,  transform, 1);
         if (currentHealth <= 0)
         {
             OnDied?.Invoke(transform.position);

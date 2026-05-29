@@ -203,6 +203,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::EnemyHealth
   <flashDuration>k__BackingField: 0.1
   enemyStat: {fileID: 11400000, guid: f1db22410584e91458207b59e890eb18, type: 2}
+  takeDamageSound: {fileID: 8300000, guid: 661da953fc4c4584b8c2550c83470f79, type: 3}
 --- !u!114 &6375620782344883709
 MonoBehaviour:
   m_ObjectHideFlags: 0
