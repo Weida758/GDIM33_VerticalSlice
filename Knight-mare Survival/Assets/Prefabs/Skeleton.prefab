@@ -18,6 +18,7 @@ GameObject:
   - component: {fileID: 6375620782344883709}
   - component: {fileID: 5995716745182975760}
   - component: {fileID: 744348746480650294}
+  - component: {fileID: -2637978620431433065}
   m_Layer: 6
   m_Name: Skeleton
   m_TagString: Untagged
@@ -255,3 +256,22 @@ MonoBehaviour:
   gemPrefab: {fileID: 9017380606553801142, guid: fb778759519e2a24cb9b3d507b128058, type: 3}
   dropChance: 1
   spawnOffset: {x: 0, y: 3, z: 0}
+--- !u!114 &-2637978620431433065
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6873060706805223636}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c4bf46cc035a0af489c0844136026fa9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::EnemySpecialItemDrop
+  dropChance: 0.05
+  spawnOffset: {x: 0, y: 3, z: 0}
+  possibleDrops:
+  - prefab: {fileID: 8527884377446663735, guid: 4f764e8eaab83af4297e61eb7ec2b135, type: 3}
+    weight: 0.07
+  - prefab: {fileID: 7238742623179915506, guid: 362ca390c30a98c409f87604ea42fa68, type: 3}
+    weight: 0.03

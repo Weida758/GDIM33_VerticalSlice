@@ -54,7 +54,7 @@ public class EnemyHealth : MonoBehaviour
     public void TakeDamage(int amount, Vector2 sourcePosition)
     {
         currentHealth -= amount;
-        AudioManager.instance.PlaySoundEffectClip(takeDamageSound,  transform, 1);
+        AudioManager.instance.PlaySoundEffectClip(takeDamageSound,  transform, 0.6f);
         if (currentHealth <= 0)
         {
             OnDied?.Invoke(transform.position);
