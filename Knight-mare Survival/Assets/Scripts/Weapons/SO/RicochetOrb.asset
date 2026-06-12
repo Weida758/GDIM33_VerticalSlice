@@ -19,7 +19,7 @@ MonoBehaviour:
   levels:
   - damage: 3.6
     cooldown: 2
-    area: 0.19125
+    area: 0.18
     speed: 7
     count: 1
     duration: 9.6
@@ -27,7 +27,7 @@ MonoBehaviour:
     upgradeDescription: Adds Ricochet Orb.
   - damage: 3.6
     cooldown: 2
-    area: 0.2295
+    area: 0.22
     speed: 7
     count: 2
     duration: 11.2
@@ -35,7 +35,7 @@ MonoBehaviour:
     upgradeDescription: Fires 1 more projectile.
   - damage: 4.5
     cooldown: 1.8
-    area: 0.26775
+    area: 0.25
     speed: 7.5
     count: 2
     duration: 12.8
@@ -43,7 +43,7 @@ MonoBehaviour:
     upgradeDescription: Bigger projectiles and longer lifetime.
   - damage: 5.4
     cooldown: 1.6
-    area: 0.34425
+    area: 0.32
     speed: 8
     count: 3
     duration: 14.4

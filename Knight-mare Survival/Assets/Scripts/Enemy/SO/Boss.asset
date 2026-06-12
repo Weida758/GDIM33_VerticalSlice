@@ -16,5 +16,5 @@ MonoBehaviour:
   maxHealth: 70
   damage: 20
   speed: 1.6
-  knockbackDuration: 0.08
-  knockbackForce: 4
+  knockbackDuration: 0.04
+  knockbackForce: 1.5

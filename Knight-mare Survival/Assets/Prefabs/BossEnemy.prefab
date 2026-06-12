@@ -1,5 +1,36 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &6470473537857546036
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1759911609705355027}
+  m_Layer: 6
+  m_Name: GameObject
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1759911609705355027
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6470473537857546036}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 1.7, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 6291611283802542617}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &6873060706805223636
 GameObject:
   m_ObjectHideFlags: 0
@@ -19,6 +50,7 @@ GameObject:
   - component: {fileID: 5995716745182975760}
   - component: {fileID: 744348746480650294}
   - component: {fileID: -3826658144101251464}
+  - component: {fileID: 266355226985703854}
   m_Layer: 6
   m_Name: BossEnemy
   m_TagString: Untagged
@@ -38,7 +70,8 @@ Transform:
   m_LocalPosition: {x: -4.00573, y: 3.16527, z: 0}
   m_LocalScale: {x: 3, y: 3, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 1759911609705355027}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &2048271748965862308
@@ -90,7 +123,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 9
   m_MaskInteraction: 0
-  m_Sprite: {fileID: 3384702362955338871, guid: 9d81e00ee30691148b9227009779c76f, type: 3}
+  m_Sprite: {fileID: -2012091947268367883, guid: f838a5e6c8c94f045b55b3154d550ea7, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -124,7 +157,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7927fcd03a9f4e33b67ce98066eab891, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemyChase
-  moveSpeed: 3
+  moveSpeed: 1.6
   despawnDistanceSqr: 900
 --- !u!50 &7227085937165463458
 Rigidbody2D:
@@ -187,8 +220,8 @@ CapsuleCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0.10846174, y: 3.0886774}
-  m_Size: {x: 0.9872129, y: 1.039568}
+  m_Offset: {x: 0.02637752, y: 1.6916937}
+  m_Size: {x: 0.62604207, y: 0.8558779}
   m_Direction: 0
 --- !u!114 &-4162614670834388574
 MonoBehaviour:
@@ -203,7 +236,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemyHealth
   <flashDuration>k__BackingField: 0.1
-  enemyStat: {fileID: 11400000, guid: baeed53b064e9144693d932d273b8529, type: 2}
+  enemyStat: {fileID: 11400000, guid: 3260db8dd0f313f4881ecc7d1b60143a, type: 2}
   takeDamageSound: {fileID: 8300000, guid: 661da953fc4c4584b8c2550c83470f79, type: 3}
 --- !u!114 &6375620782344883709
 MonoBehaviour:
@@ -217,7 +250,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 84f2012349a24866be6ae990d98e38cd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemyDamageOnContact
-  damage: 15
+  damage: 20
   damageInterval: 0.5
 --- !u!95 &5995716745182975760
 Animator:
@@ -255,6 +288,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::EnemyXPDrop
   gemPrefab: {fileID: 9017380606553801142, guid: fb778759519e2a24cb9b3d507b128058, type: 3}
   dropChance: 1
+  dropCount: 8
+  dropSpreadRadius: 0.4
   spawnOffset: {x: 0, y: 3, z: 0}
 --- !u!114 &-3826658144101251464
 MonoBehaviour:
@@ -272,6 +307,27 @@ MonoBehaviour:
   spawnOffset: {x: 0, y: 3, z: 0}
   possibleDrops:
   - prefab: {fileID: 8527884377446663735, guid: 4f764e8eaab83af4297e61eb7ec2b135, type: 3}
-    weight: 0.08
+    weight: 0.1
   - prefab: {fileID: 7238742623179915506, guid: 362ca390c30a98c409f87604ea42fa68, type: 3}
-    weight: 0.04
+    weight: 0.1
+--- !u!114 &266355226985703854
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6873060706805223636}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5a551c015a93f2a4d9c325cd6ad760df, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::EnemyProjectileShooter
+  projectilePrefab: {fileID: 8012280212154367119, guid: 1ed0c53bb29572e448c7e089d563ec2d, type: 3}
+  projectileSpawnPoint: {fileID: 1759911609705355027}
+  projectileSpawnOffset: {x: 0, y: 3, z: 0}
+  fireInterval: 2.5
+  firstShotDelay: 1
+  projectileSpeed: 7
+  projectileLifetime: 5
+  projectileDamage: 12
+  maxFireDistance: 18

@@ -4,6 +4,7 @@ public class EnemyProjectileShooter : MonoBehaviour
 {
     [SerializeField] private EnemyProjectile projectilePrefab;
     [SerializeField] private Transform projectileSpawnPoint;
+    [SerializeField] private Vector3 projectileSpawnOffset = new Vector3(0f, 3f, 0f);
     [SerializeField] private float fireInterval = 2.5f;
     [SerializeField] private float firstShotDelay = 1f;
     [SerializeField] private float projectileSpeed = 7f;
@@ -65,8 +66,11 @@ public class EnemyProjectileShooter : MonoBehaviour
 
     private void Fire(Vector2 toPlayer)
     {
-        Transform spawnPoint = projectileSpawnPoint != null ? projectileSpawnPoint : transform;
-        EnemyProjectile projectile = Instantiate(projectilePrefab, spawnPoint.position, Quaternion.identity);
+        Vector3 spawnPosition = projectileSpawnPoint != null
+            ? projectileSpawnPoint.position
+            : transform.TransformPoint(projectileSpawnOffset);
+
+        EnemyProjectile projectile = Instantiate(projectilePrefab, spawnPosition, Quaternion.identity);
         projectile.Initialize(toPlayer, projectileDamage, projectileSpeed, projectileLifetime);
     }
 }

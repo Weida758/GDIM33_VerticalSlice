@@ -11,13 +11,13 @@ public class EnemySpawner : MonoBehaviour
     }
 
     public Transform player;
-    public float waveInterval = 15f;
-    public float minWaveInterval = 5f;
-    public float waveIntervalDecreasePerMinute = 0.4f;
-    public int enemiesPerWave = 8;
-    public int enemiesPerWaveIncrease = 2;
-    public float enemyIncreaseInterval = 20f;
-    public int maxEnemiesPerWave = 90;
+    public float waveInterval = 6f;
+    public float minWaveInterval = 6f;
+    public float waveIntervalDecreasePerMinute = 0.2f;
+    public int enemiesPerWave = 5;
+    public int enemiesPerWaveIncrease = 1;
+    public float enemyIncreaseInterval = 25f;
+    public int maxEnemiesPerWave = 60;
     public float spawnBuffer = 1.5f;
     public int maxActiveEnemies = 300;
 
@@ -25,20 +25,20 @@ public class EnemySpawner : MonoBehaviour
     public GameObject lateEnemyPrefab;
     public float lateEnemyUnlockTime = 120f;
     public GameObject strongEnemyPrefab;
-    public float strongEnemyUnlockTime = 180f;
+    public float strongEnemyUnlockTime = 40f;
     public GameObject bossEnemyPrefab;
-    public float bossFirstSpawnTime = 120f;
-    public float bossSpawnInterval = 120f;
+    public float bossFirstSpawnTime = 60f;
+    public float bossSpawnInterval = 60f;
     public float bossSpawnExtraDistance = 2f;
     public EnemySpawnOption[] extraEnemyOptions;
-    public float enemyWeightRampDuration = 90f;
+    public float enemyWeightRampDuration = 45f;
     public float lateEnemyMaxWeight = 1.2f;
-    public float strongEnemyMaxWeight = 0.7f;
-    public float healthScalePerMinute = 0.15f;
-    public float damageScalePerMinute = 0.08f;
-    public float speedScalePerMinute = 0.03f;
+    public float strongEnemyMaxWeight = 1.2f;
+    public float healthScalePerMinute = 0.1f;
+    public float damageScalePerMinute = 0.05f;
+    public float speedScalePerMinute = 0.02f;
     public float bossHealthMultiplier = 8f;
-    public float bossDamageMultiplier = 1.5f;
+    public float bossDamageMultiplier = 1.25f;
     public float bossSpeedMultiplier = 0.75f;
 
     private float timer;

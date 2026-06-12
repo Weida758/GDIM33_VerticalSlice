@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: Goblin
   m_EditorClassIdentifier: Assembly-CSharp::EnemyStat
   name: Goblin
-  maxHealth: 15
+  maxHealth: 11
   damage: 15
-  speed: 3
+  speed: 2.5
   knockbackDuration: 0.15
   knockbackForce: 8

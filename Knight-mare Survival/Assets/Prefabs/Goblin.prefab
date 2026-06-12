@@ -124,7 +124,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7927fcd03a9f4e33b67ce98066eab891, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemyChase
-  moveSpeed: 3
+  moveSpeed: 2.5
   despawnDistanceSqr: 900
 --- !u!50 &7227085937165463458
 Rigidbody2D:
@@ -255,6 +255,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::EnemyXPDrop
   gemPrefab: {fileID: 9017380606553801142, guid: fb778759519e2a24cb9b3d507b128058, type: 3}
   dropChance: 1
+  dropCount: 2
+  dropSpreadRadius: 0.4
   spawnOffset: {x: 0, y: 3, z: 0}
 --- !u!114 &-3826658144101251464
 MonoBehaviour:

@@ -90,7 +90,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 9
   m_MaskInteraction: 0
-  m_Sprite: {fileID: 3384702362955338871, guid: 9d81e00ee30691148b9227009779c76f, type: 3}
+  m_Sprite: {fileID: -4714465141021916850, guid: 31a7a71267facec4aade89e7cbf30ade, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -187,8 +187,8 @@ CapsuleCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0.10846174, y: 3.0886774}
-  m_Size: {x: 0.9872129, y: 1.039568}
+  m_Offset: {x: 0.0524351, y: 1.5497885}
+  m_Size: {x: 0.41449964, y: 0.46430016}
   m_Direction: 0
 --- !u!114 &-4162614670834388574
 MonoBehaviour:
@@ -255,6 +255,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::EnemyXPDrop
   gemPrefab: {fileID: 9017380606553801142, guid: fb778759519e2a24cb9b3d507b128058, type: 3}
   dropChance: 1
+  dropCount: 1
+  dropSpreadRadius: 0.4
   spawnOffset: {x: 0, y: 3, z: 0}
 --- !u!114 &-3826658144101251464
 MonoBehaviour:
