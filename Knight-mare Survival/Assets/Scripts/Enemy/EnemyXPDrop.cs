@@ -5,6 +5,8 @@ public class EnemyXPDrop : MonoBehaviour
 {
     [SerializeField] private GameObject gemPrefab;
     [SerializeField, Range(0f, 1f)] private float dropChance = 1f;
+    [SerializeField, Min(1)] private int dropCount = 1;
+    [SerializeField] private float dropSpreadRadius = 0.4f;
     [SerializeField] private Vector3 spawnOffset;
 
     private EnemyHealth health;
@@ -31,6 +33,24 @@ public class EnemyXPDrop : MonoBehaviour
         if (dropChance < 1f && Random.value > dropChance) return;
 
         Vector3 spawnPosition = deathPosition + spawnOffset;
-        XPGemPool.Instance.Get(gemPrefab, spawnPosition);
+
+        for (int i = 0; i < dropCount; i++)
+        {
+            XPGemPool.Instance.Get(gemPrefab, spawnPosition + GetDropOffset());
+        }
+    }
+
+    private Vector3 GetDropOffset()
+    {
+        if (dropSpreadRadius <= 0f) return Vector3.zero;
+
+        float angle = Random.Range(0f, Mathf.PI * 2f);
+        float radius = Random.Range(0f, dropSpreadRadius);
+
+        return new Vector3(
+            Mathf.Cos(angle) * radius,
+            Mathf.Sin(angle) * radius,
+            0f
+        );
     }
 }

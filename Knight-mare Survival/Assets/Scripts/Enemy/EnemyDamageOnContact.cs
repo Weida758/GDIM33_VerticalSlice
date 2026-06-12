@@ -7,11 +7,23 @@ public class EnemyDamageOnContact : MonoBehaviour
 
     private float damageTimer;
     private PlayerHealth touchingPlayer;
+    private int baseDamage;
+
+    void Awake()
+    {
+        baseDamage = damage;
+    }
 
     void OnEnable()
     {
+        damage = baseDamage;
         damageTimer = 0f;
         touchingPlayer = null;
+    }
+
+    public void ApplyDamageMultiplier(float multiplier)
+    {
+        damage = Mathf.Max(1, Mathf.RoundToInt(baseDamage * Mathf.Max(0.01f, multiplier)));
     }
 
     void OnCollisionEnter2D(Collision2D collision)

@@ -15,7 +15,8 @@ public class UpgradePool
     {
         new PlayerStatUpgradeDefinition(PlayerStatUpgradeType.MaxHealth, "Max Health", "+20 max health.", 20f),
         new PlayerStatUpgradeDefinition(PlayerStatUpgradeType.MoveSpeed, "Move Speed", "+0.4 movement speed.", 0.4f),
-        new PlayerStatUpgradeDefinition(PlayerStatUpgradeType.InvincibilityDuration, "Recovery", "+0.1 seconds of damage invincibility.", 0.1f)
+        new PlayerStatUpgradeDefinition(PlayerStatUpgradeType.InvincibilityDuration, "Recovery", "+0.1 seconds of damage invincibility.", 0.1f),
+        new PlayerStatUpgradeDefinition(PlayerStatUpgradeType.GlobalDamage, "Damage Up", "+0.5 global weapon damage.", 0.5f)
     };
 
     public List<UpgradeOption> BuildOffers(WeaponManager weaponManager, int desiredCount)
@@ -88,11 +89,32 @@ public class UpgradePool
             }
         }
 
-        if (workingStatCandidates.Count > 0) return;
+        if (workingStatCandidates.Count > 0)
+        {
+            EnsureDefaultStatUpgrade(PlayerStatUpgradeType.GlobalDamage);
+            return;
+        }
 
         for (int i = 0; i < DefaultStatUpgrades.Length; i++)
         {
             workingStatCandidates.Add(DefaultStatUpgrades[i]);
+        }
+    }
+
+    private void EnsureDefaultStatUpgrade(PlayerStatUpgradeType type)
+    {
+        for (int i = 0; i < workingStatCandidates.Count; i++)
+        {
+            if (workingStatCandidates[i].type == type) return;
+        }
+
+        for (int i = 0; i < DefaultStatUpgrades.Length; i++)
+        {
+            if (DefaultStatUpgrades[i].type == type)
+            {
+                workingStatCandidates.Add(DefaultStatUpgrades[i]);
+                return;
+            }
         }
     }
 

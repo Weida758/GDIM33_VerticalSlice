@@ -8,9 +8,20 @@ public abstract class Weapon : MonoBehaviour
 
     public event Action<Weapon> OnLevelChanged;
 
+    private WeaponManager weaponManager;
+
     protected WeaponLevel Stats
     {
         get { return Data.levels[Level - 1]; }
+    }
+
+    protected float Damage
+    {
+        get
+        {
+            float bonus = weaponManager != null ? weaponManager.GlobalDamageBonus : 0f;
+            return Mathf.Max(0f, Stats.damage + bonus);
+        }
     }
 
     public bool CanLevelUp
@@ -26,6 +37,7 @@ public abstract class Weapon : MonoBehaviour
     {
         Data = data;
         Level = 1;
+        weaponManager = GetComponentInParent<WeaponManager>();
         OnInitialized();
         OnLevelChanged?.Invoke(this);
     }

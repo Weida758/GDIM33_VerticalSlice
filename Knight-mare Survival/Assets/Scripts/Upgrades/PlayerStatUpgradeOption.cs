@@ -4,7 +4,8 @@ public enum PlayerStatUpgradeType
 {
     MaxHealth,
     MoveSpeed,
-    InvincibilityDuration
+    InvincibilityDuration,
+    GlobalDamage
 }
 
 [System.Serializable]
@@ -66,6 +67,9 @@ public class PlayerStatUpgradeOption : UpgradeOption
             case PlayerStatUpgradeType.InvincibilityDuration:
                 ApplyInvincibilityDuration(weaponManager);
                 break;
+            case PlayerStatUpgradeType.GlobalDamage:
+                ApplyGlobalDamage(weaponManager);
+                break;
         }
     }
 
@@ -103,6 +107,22 @@ public class PlayerStatUpgradeOption : UpgradeOption
         }
 
         health.AddInvincibilityDuration(definition.amount);
+    }
+
+    private void ApplyGlobalDamage(WeaponManager weaponManager)
+    {
+        if (weaponManager == null)
+        {
+            weaponManager = ResolvePlayerComponent<WeaponManager>(null);
+        }
+
+        if (weaponManager == null)
+        {
+            Debug.LogWarning("Could not apply global damage upgrade because WeaponManager was not found.");
+            return;
+        }
+
+        weaponManager.AddGlobalDamageBonus(definition.amount);
     }
 
     private static T ResolvePlayerComponent<T>(WeaponManager weaponManager) where T : Component

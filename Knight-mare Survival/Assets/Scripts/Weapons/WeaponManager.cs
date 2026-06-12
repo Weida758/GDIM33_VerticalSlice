@@ -6,6 +6,7 @@ public class WeaponManager : MonoBehaviour
 {
     [SerializeField] private int maxWeaponSlots = 6;
     [SerializeField] private List<WeaponDataSO> startingWeapons = new();
+    [SerializeField] private float globalDamageBonus;
 
     private readonly Dictionary<WeaponDataSO, Weapon> equipped = new();
 
@@ -30,6 +31,11 @@ public class WeaponManager : MonoBehaviour
     public IEnumerable<Weapon> Equipped
     {
         get { return equipped.Values; }
+    }
+
+    public float GlobalDamageBonus
+    {
+        get { return globalDamageBonus; }
     }
 
     private void Start()
@@ -102,5 +108,11 @@ public class WeaponManager : MonoBehaviour
         if (!weapon.LevelUp()) return false;
         OnWeaponLeveledUp?.Invoke(weapon);
         return true;
+    }
+
+    public void AddGlobalDamageBonus(float amount)
+    {
+        if (amount <= 0f) return;
+        globalDamageBonus += amount;
     }
 }

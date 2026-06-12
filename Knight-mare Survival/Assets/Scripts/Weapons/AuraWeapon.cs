@@ -36,7 +36,7 @@ public class AuraWeapon : Weapon
             EnemyHealth enemy = hitBuffer[i].GetComponent<EnemyHealth>();
             if (enemy != null)
             {
-                enemy.TakeDamage(Stats.damage, attackCenter);
+                enemy.TakeDamage(Damage, attackCenter);
             }
         }
     }

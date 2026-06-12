@@ -3,7 +3,7 @@ using UnityEngine;
 [System.Serializable]
 public struct WeaponLevel
 {
-    public int damage;
+    public float damage;
     public float cooldown;
     public float area;
     public float speed;

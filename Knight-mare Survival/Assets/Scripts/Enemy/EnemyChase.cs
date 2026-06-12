@@ -7,19 +7,28 @@ public class EnemyChase : MonoBehaviour
 
     private static Transform playerTransform;
     private Rigidbody2D rb;
+    private float baseMoveSpeed;
 
     void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
+        baseMoveSpeed = moveSpeed;
     }
 
     void OnEnable()
     {
+        moveSpeed = baseMoveSpeed;
+
         if (playerTransform == null)
         {
             var playerObj = GameObject.FindGameObjectWithTag("Player");
             if (playerObj != null) playerTransform = playerObj.transform;
         }
+    }
+
+    public void ApplySpeedMultiplier(float multiplier)
+    {
+        moveSpeed = baseMoveSpeed * Mathf.Max(0.01f, multiplier);
     }
 
     void FixedUpdate()

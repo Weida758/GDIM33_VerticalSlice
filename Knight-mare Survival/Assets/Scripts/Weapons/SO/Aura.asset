@@ -13,40 +13,40 @@ MonoBehaviour:
   m_Name: Aura
   m_EditorClassIdentifier: Assembly-CSharp::WeaponDataSO
   weaponName: Aura
-  description: Generates an Aura around you every second to deal 1 damage to the
+  description: Generates an Aura around you every second to deal 1.2 damage to the
     surrounding enemies
   icon: {fileID: 21300000, guid: 778bd19b752347c44bee020dbc9b5725, type: 3}
   weaponPrefab: {fileID: 6536446218075772880, guid: 6b9db76896f0c33479ebf5e43ccdaaf8, type: 3}
   levels:
-  - damage: 1
+  - damage: 1.2
     cooldown: 1
     area: 2
     speed: 0
     count: 0
     duration: 0
     pierce: 0
-    upgradeDescription: +1 damage, +0.1 area
-  - damage: 2
+    upgradeDescription: Adds Aura.
+  - damage: 2.4
     cooldown: 1
     area: 2.3
     speed: 0
     count: 0
     duration: 0
     pierce: 0
-    upgradeDescription: +1 damage, +0.1 area
-  - damage: 3
+    upgradeDescription: +1.2 damage, +0.3 area
+  - damage: 3.6
     cooldown: 1
     area: 2.5
     speed: 0
     count: 0
     duration: 0
     pierce: 0
-    upgradeDescription: +1 damage, +0.1 area
-  - damage: 3
+    upgradeDescription: +1.2 damage, +0.2 area
+  - damage: 3.6
     cooldown: 1
     area: 2.7
     speed: 0
     count: 0
     duration: 0
     pierce: 0
-    upgradeDescription: + 0.1 area
+    upgradeDescription: +0.2 area

@@ -62,7 +62,7 @@ public class ProjectileWeapon : Weapon
             );
 
             projectile.Initialize(
-                stats.damage,
+                Damage,
                 projectileSpeed,
                 projectileRadius,
                 projectileLifetime,

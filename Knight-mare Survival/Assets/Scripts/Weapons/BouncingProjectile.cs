@@ -8,29 +8,33 @@ public class BouncingProjectile : MonoBehaviour
     [SerializeField] private float enemyHitCooldown = 0.25f;
     [SerializeField] private int sortingOrder = 20;
     [SerializeField] private bool rotateToMovement = true;
+    [SerializeField] private float spinDegreesPerSecond = 180f;
 
     private readonly Collider2D[] hitBuffer = new Collider2D[128];
     private readonly Dictionary<EnemyHealth, float> nextAllowedHitTime = new();
 
     private Vector3 baseLocalScale;
     private SpriteRenderer spriteRenderer;
+    private Transform visualTransform;
     private Camera boundaryCamera;
     private LayerMask enemyLayer;
     private Vector2 direction;
     private float speed;
     private float radius;
     private float lifetimeRemaining;
-    private int damage;
+    private float damage;
+    private float spinDirection = 1f;
     private bool initialized;
 
     private void Awake()
     {
         baseLocalScale = transform.localScale;
         spriteRenderer = GetComponentInChildren<SpriteRenderer>();
+        visualTransform = spriteRenderer != null ? spriteRenderer.transform : transform;
     }
 
     public void Initialize(
-        int damage,
+        float damage,
         float speed,
         float radius,
         float lifetime,
@@ -48,6 +52,7 @@ public class BouncingProjectile : MonoBehaviour
 
         nextAllowedHitTime.Clear();
         initialized = true;
+        spinDirection = Random.value < 0.5f ? -1f : 1f;
         if (spriteRenderer != null) spriteRenderer.sortingOrder = sortingOrder;
 
         float scale = this.radius / Mathf.Max(0.0001f, visualRadiusAtScaleOne);
@@ -68,6 +73,7 @@ public class BouncingProjectile : MonoBehaviour
         }
 
         if (!Move(Time.deltaTime)) return;
+        ApplySpin(Time.deltaTime);
         DamageEnemies();
     }
 
@@ -156,6 +162,13 @@ public class BouncingProjectile : MonoBehaviour
 
         float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
         transform.rotation = Quaternion.Euler(0f, 0f, angle);
+    }
+
+    private void ApplySpin(float deltaTime)
+    {
+        if (visualTransform == null || spinDegreesPerSecond == 0f) return;
+
+        visualTransform.Rotate(0f, 0f, spinDegreesPerSecond * spinDirection * deltaTime, Space.Self);
     }
 
     private void Finish()

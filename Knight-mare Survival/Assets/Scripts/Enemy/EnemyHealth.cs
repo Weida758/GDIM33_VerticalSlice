@@ -36,6 +36,12 @@ public class EnemyHealth : MonoBehaviour
         if (chase != null) chase.enabled = true;
     }
 
+    public void ApplyHealthMultiplier(float multiplier)
+    {
+        multiplier = Mathf.Max(0.01f, multiplier);
+        currentHealth = enemyStat.maxHealth * multiplier;
+    }
+
     void Update()
     {
         if (flashTimer > 0f)
@@ -51,7 +57,7 @@ public class EnemyHealth : MonoBehaviour
         }
     }
     
-    public void TakeDamage(int amount, Vector2 sourcePosition)
+    public void TakeDamage(float amount, Vector2 sourcePosition)
     {
         currentHealth -= amount;
         AudioManager.instance.PlaySoundEffectClip(takeDamageSound,  transform, 0.6f);
